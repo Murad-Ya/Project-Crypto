@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
-use App\Http\Controllers\Massage;
+use App\Http\Controllers\FeebackControllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +18,5 @@ use App\Http\Controllers\Massage;
 Route::get('/' , function() {
     echo 'Главная страница';});
 Route::get('crypto' , [Controllers\CryptoController::class , 'crypto']);
-Route::get('massage' , [App\Http\Controllers\Massage::class , 'massage']);
+Route::get('massage' , [App\Http\Controllers\FeebackControllers::class , 'massage']);
 

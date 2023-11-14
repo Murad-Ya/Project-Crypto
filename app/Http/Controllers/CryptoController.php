@@ -14,7 +14,9 @@ class CryptoController
 
         $crypto = Crypto::create([
             'name' => $request->input('name'),
-            'price' => $request->input('price')
+            'price' => $request->input('price'),
+            'is_active' => false,
+
         ]);
             }
         public function getCrypto ()
