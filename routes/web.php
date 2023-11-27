@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
-use App\Http\Controllers\FeebackControllers;
+use App\Http\Controllers\FeedbackControllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +14,18 @@ use App\Http\Controllers\FeebackControllers;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::prefix('/')->group(function (){
+    Route::get('crypto' , [Controllers\CryptoController::class , 'crypto']);
+    Route::get('crypto/create' , [App\Http\Controllers\CryptoController::class , 'getCrypto']);
+});
 
-Route::get('/' , function() {
-    echo 'Главная страница';});
-Route::get('crypto' , [Controllers\CryptoController::class , 'crypto']);
-Route::get('massage' , [App\Http\Controllers\FeebackControllers::class , 'massage']);
+Route::prefix('/')->group(function () {
+    Route::get('currency' , [\App\Http\Controllers\CurrencyController:: class , 'index']);
+    Route::get('/currency/store' , [\App\Http\Controllers\CurrencyController:: class , 'store']);
+    Route::post('/currency/create' , [App\Http\Controllers\CurrencyController::class , 'create']);
+});
 
+Route::prefix('/')->group(function () {
+    Route::get('feedback' , [App\Http\Controllers\FeedbackControllers::class , 'message']);
+    Route::get('/feedback/list' , [FeedbackControllers::class, 'getMessage']);
+});

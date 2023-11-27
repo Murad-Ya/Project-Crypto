@@ -4,14 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Feedback extends Model
+class Currency extends Model
 {
-    protected $table = 'feedback';
+    protected $table = 'currency';
     protected $fillable = [
         'name',
-        'comments',
+        'price',
+        'code',
         'created_at',
         'updated_at',
-        'is_active',
-        ];
+        'is_active'
+    ];
 }

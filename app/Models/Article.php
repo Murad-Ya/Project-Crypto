@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Feedback extends Model
+class Article extends Model
 {
-    protected $table = 'feedback';
+    protected $table = 'articles';
     protected $fillable = [
         'name',
         'comments',
         'created_at',
         'updated_at',
         'is_active',
-        ];
+    ];
 }

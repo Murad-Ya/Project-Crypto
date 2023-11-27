@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('feedback', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('name');
-            $table->text('comments');
-            $table->string('is_active');
+        Schema::table('currency', function (Blueprint $table) {
+            $table->boolean('is_active')->nullable();
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('feedback');
+        Schema::table('column_currency', function (Blueprint $table) {
+            $table->dropColumn('is_active');
+        });
     }
 };
